@@ -10,7 +10,7 @@
 ## Package artifacts
 
 /build/
-
+.idea
 ## Test bundle artifacts
 
 /test-bundles/benchmark/core.js

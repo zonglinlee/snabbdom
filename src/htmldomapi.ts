@@ -33,7 +33,7 @@ export interface DOMAPI {
   tagName: (elm: Element) => string;
   setTextContent: (node: Node, text: string | null) => void;
   getTextContent: (node: Node) => string | null;
-  isElement: (node: Node) => node is Element;
+  isElement: (node: Node) => node is Element; // Narrowing: Using type predicates ( a user-defined type guard)
   isText: (node: Node) => node is Text;
   isComment: (node: Node) => node is Comment;
   /**

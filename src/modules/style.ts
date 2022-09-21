@@ -75,7 +75,7 @@ function applyDestroyStyle(vnode: VNode): void {
     (elm as any).style[name] = style[name];
   }
 }
-
+// 在 removeVnodes 函数中会调用( 即移除当前 dom 元素时候）
 function applyRemoveStyle(vnode: VNode, rm: () => void): void {
   const s = (vnode.data as VNodeData).style;
   if (!s || !s.remove) {

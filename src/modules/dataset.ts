@@ -24,6 +24,8 @@ function updateDataset(oldVnode: VNode, vnode: VNode): void {
           delete d[key];
         }
       } else {
+        // $&	Inserts the matched substring.
+        // "myGodDear".replace(/[A-Z]/g, "-$&").toLowerCase()   ======> 'my-god-dear'
         elm.removeAttribute(
           "data-" + key.replace(CAPS_REGEX, "-$&").toLowerCase()
         );

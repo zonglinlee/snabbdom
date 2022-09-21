@@ -260,15 +260,15 @@ export function init(
       const ch = vnodes[startIdx];
       if (ch != null) {
         if (isDef(ch.sel)) {
-          invokeDestroyHook(ch);
+          invokeDestroyHook(ch); // 执行 destroy 钩子函数
           listeners = cbs.remove.length + 1;
-          rm = createRmCb(ch.elm!, listeners);
+          rm = createRmCb(ch.elm!, listeners); // 创建 rm 函数，传入removeHook, 在 transition-end 之后执行 dom  元素的移除
           for (let i = 0; i < cbs.remove.length; ++i) cbs.remove[i](ch, rm);
           const removeHook = ch?.data?.hook?.remove;
           if (isDef(removeHook)) {
-            removeHook(ch, rm);
+            removeHook(ch, rm); // 执行 remove 钩子函数
           } else {
-            rm();
+            rm(); // 直接 remove dom 元素
           }
         } else if (ch.children) {
           // Fragment node
